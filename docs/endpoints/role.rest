@@ -1,0 +1,19 @@
+@token=1|WGT01lLE6TCYBEFlzBDbjTbDxzDTdraZZhYCDQ4w35255ea6
+### Get all roles
+GET http://localhost:8000/api/role
+Authorization: Bearer {{token}}
+Accept: application/json
+### Create a role
+POST http://localhost:8000/api/role
+Authorization: Bearer {{token}}
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name":"CEO",
+    "detail":"CEO"
+}
+### Get a roles
+GET http://localhost:8000/api/role/1
+Authorization: Bearer {{token}}
+Accept: application/json

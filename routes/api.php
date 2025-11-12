@@ -4,8 +4,12 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BranchController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StorehouseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -20,6 +24,9 @@ Route::prefix('/v1/auth')->group(function(){
     });
 });
 Route::middleware('auth:sanctum')->group(function(){
+
+    Route::post('/product/{id}/image', [ProductController::class, 'updateImage']);
+
     Route::get("/users",[UserController::class,'list']);
     Route::post("/users",[UserController::class,'save']);
     Route::get("/users/{id}",[UserController::class,'showOne']);
@@ -28,6 +35,9 @@ Route::middleware('auth:sanctum')->group(function(){
 
     Route::apiResource("category",CategoryController::class);
     Route::apiResource("role",RoleController::class);
+    Route::apiResource("branch",BranchController::class);
+    Route::apiResource("storehouse",StorehouseController::class);
+    Route::apiResource("product",ProductController::class);
 });
 Route::get("/non-authorized",function(){
     return response()->json(["message"=>"You are not authorized for this info"]);

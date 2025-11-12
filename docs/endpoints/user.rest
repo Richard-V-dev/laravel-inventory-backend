@@ -1,14 +1,13 @@
-@token=4|aL2DMpJckVolrLzXQFfvRBSmeg5IJZReUMpWffDiac07d06e
 ### User's endpoints ###
 ### List
 GET http://localhost:8000/api/users
 Accept: application/json
-Authorization: Bearer {{token}}
+Authorization: Bearer {{$dotenv TOKEN}}
 ### Save
 POST http://localhost:8000/api/users
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer {{token}}
+Authorization: Bearer {{$dotenv TOKEN}}
 
 {
     "name": "borrar",
@@ -18,12 +17,12 @@ Authorization: Bearer {{token}}
 ### ShowOne
 GET http://localhost:8000/api/users/1
 Accept: application/json
-Authorization: Bearer {{token}}
+Authorization: Bearer {{$dotenv TOKEN}}
 ### Edit
 PUT http://localhost:8000/api/users/4
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer {{token}}
+Authorization: Bearer {{$dotenv TOKEN}}
 
 {
     "name": "josemaria",
@@ -33,4 +32,4 @@ Authorization: Bearer {{token}}
 ### Delete
 DELETE http://localhost:8000/api/users/7/delete
 Accept: application/json
-Authorization: Bearer {{token}}
+Authorization: Bearer {{$dotenv TOKEN}}

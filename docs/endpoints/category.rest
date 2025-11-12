@@ -1,11 +1,10 @@
-@token=4|aL2DMpJckVolrLzXQFfvRBSmeg5IJZReUMpWffDiac07d06e
 ### List all
 GET http://localhost:8000/api/category
-Authorization: Bearer {{token}}
+Authorization: Bearer {{$dotenv TOKEN}}
 Accept: application/json
 ### Create one
 POST http://localhost:8000/api/category
-Authorization: Bearer {{token}}
+Authorization: Bearer {{$dotenv TOKEN}}
 Accept: application/json
 Content-Type: application/json
 
@@ -15,12 +14,12 @@ Content-Type: application/json
 }
 ### Show One
 GET http://localhost:8000/api/category/1
-Authorization: Bearer {{token}}
+Authorization: Bearer {{$dotenv TOKEN}}
 Accept: application/json
 
 ### Update one
 PUT http://localhost:8000/api/category/2
-Authorization: Bearer {{token}}
+Authorization: Bearer {{$dotenv TOKEN}}
 Accept: application/json
 Content-Type: application/json
 
@@ -31,5 +30,5 @@ Content-Type: application/json
 
 ### DELETE
 DELETE http://localhost:8000/api/category/4
-Authorization: Bearer {{token}}
+Authorization: Bearer {{$dotenv TOKEN}}
 Accept: application/json

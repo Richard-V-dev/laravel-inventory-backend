@@ -1,0 +1,38 @@
+### List all
+#GET http://localhost:8000/api/product?limit=2&state=false
+GET http://localhost:8000/api/product?limit=2&search=5
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+### List one
+GET http://localhost:8000/api/product/1
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+### Create
+POST http://localhost:8000/api/product
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+Content-Type: application/json
+
+{
+    "name":"product 5",
+    "description": "description 5",
+    "unit_of_messurement": "unit 5",
+    "brand": "brand 5",
+    "selling_price":5999.9,
+    "state":false,
+    "category_id":1
+}
+
+### Update Image
+POST http://localhost:8000/api/product/1/image
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="esponja.png"
+Content-Type: image/png
+
+< C:\Users\DELL\Pictures\esponja.png
+--WebAppBoundary--
+

@@ -1,4 +1,4 @@
-@token=4|aL2DMpJckVolrLzXQFfvRBSmeg5IJZReUMpWffDiac07d06e
+### Login
 POST http://localhost:8000/api/v1/auth/login
 Accept: application/json
 Content-Type: application/json
@@ -7,7 +7,7 @@ Content-Type: application/json
     "email":"sergio@example.com",
     "password":"sergio54321"
 }
-###
+### Register
 POST http://localhost:8000/api/v1/auth/register
 Accept: application/json
 Content-Type: application/json
@@ -21,8 +21,8 @@ Content-Type: application/json
 ###
 GET http://localhost:8000/api/v1/auth/profile
 Accept: application/json
-Authorization: Bearer {{token}}
+Authorization: Bearer {{$dotenv TOKEN}}
 ###
 POST http://localhost:8000/api/v1/auth/logout
 Accept: application/json
-Authorization: Bearer {{token}}
+Authorization: Bearer {{$dotenv TOKEN}}

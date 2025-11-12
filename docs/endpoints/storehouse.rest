@@ -1,0 +1,20 @@
+### List all
+GET http://localhost:8000/api/storehouse
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+### List one
+GET http://localhost:8000/api/storehouse/1
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+### Create
+POST http://localhost:8000/api/storehouse
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+Content-Type: application/json
+
+{
+    "name":"storehouse 3",
+    "code": "ALM-003",
+    "description": "test",
+    "branch_id": 3
+}

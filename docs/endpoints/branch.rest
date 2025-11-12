@@ -1,0 +1,16 @@
+### List all
+GET http://localhost:8000/api/branch
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+### Create
+POST http://localhost:8000/api/branch
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+Content-Type: application/json
+
+{
+    "name":"branch 3",
+    "address":"456 av. opq",
+    "telephone":"4222222",
+    "city":"Santa Cruz"
+}

@@ -1,0 +1,44 @@
+### List all 
+GET http://localhost:8000/api/note
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+### Create one 
+POST http://localhost:8000/api/note
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+Content-Type: application/json
+
+{
+    "note_type":"return",
+    "taxes":0,
+    "discounts":0,
+    "total_calculated":1,
+    "note_state": "note_state",
+    "observations": "observations",
+    "client_id":1,
+    "user_id":1
+}
+### Update one 
+PUT http://localhost:8000/api/note/4
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+Content-Type: application/json
+
+{
+    "note_type":"sale",
+    "taxes":0,
+    "discounts":0,
+    "total_calculated":100,
+    "note_state": "note_state",
+    "observations": "observations",
+    "client_id":1,
+    "user_id":1
+}
+### Find one 
+GET http://localhost:8000/api/note/4
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+### Delete 
+DELETE http://localhost:8000/api/note/3
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}

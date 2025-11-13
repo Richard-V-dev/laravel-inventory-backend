@@ -1,0 +1,40 @@
+### List all 
+GET http://localhost:8000/api/person
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+### Create one 
+POST http://localhost:8000/api/person
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+Content-Type: application/json
+
+{
+    "full_name":"Full name 3",
+    "ci_nit":"3683744",
+    "address":"Av. 123 ABC",
+    "telephone": "4369677",
+    "state": true,
+    "user_id": 1
+}
+### Update one 
+PUT http://localhost:8000/api/person/3
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+Content-Type: application/json
+
+{
+    "full_name":"Full name 3",
+    "ci_nit":"3683744",
+    "address":"Av. 123 ABC",
+    "telephone": "4369677",
+    "state": true,
+    "user_id": 1
+}
+### Find one 
+GET http://localhost:8000/api/person/3
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+### Delete 
+DELETE http://localhost:8000/api/person/3
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}

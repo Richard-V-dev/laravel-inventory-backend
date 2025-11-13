@@ -81,7 +81,7 @@ class ProductController extends Controller
             "name"=>"required",
             "category_id"=>"required"
         ]);
-        $product = new Product();
+        $product = Product::find($id);
         $product->name=$request->name;
         $product->description=$request->description;
         $product->unit_of_messurement=$request->unit_of_messurement;

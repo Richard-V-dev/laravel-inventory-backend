@@ -1,0 +1,42 @@
+### List all 
+GET http://localhost:8000/api/client
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+### Create one client
+POST http://localhost:8000/api/client
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+Content-Type: application/json
+
+{
+    "type":"client_1",
+    "company_name":"company_name_1",
+    "identification_number":"identification_number_1",
+    "telephone":"telephone_1",
+    "address":"address_1",
+    "email":"email_1",
+    "state": true
+}
+### Update one client
+PUT http://localhost:8000/api/client/1
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+Content-Type: application/json
+
+{
+    "type":"client_1",
+    "company_name":"company_name_1",
+    "identification_number":"identification_number_1",
+    "telephone":"telephone_1",
+    "address":"address_1",
+    "email":"email_1",
+    "state": true
+}
+### Find one client
+GET http://localhost:8000/api/client/1
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+### Soft delete of one client
+DELETE http://localhost:8000/api/client/1
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}

@@ -7,6 +7,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StorehouseController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PermitController;
+use App\Http\Controllers\PersonController;
+use App\Http\Controllers\NoteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +42,10 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::apiResource("branch",BranchController::class);
     Route::apiResource("storehouse",StorehouseController::class);
     Route::apiResource("product",ProductController::class);
+    Route::apiResource("note",NoteController::class);
+    Route::apiResource("client",ClientController::class);
+    Route::apiResource("permit",PermitController::class);
+    Route::apiResource("person",PersonController::class);
 });
 Route::get("/non-authorized",function(){
     return response()->json(["message"=>"You are not authorized for this info"]);

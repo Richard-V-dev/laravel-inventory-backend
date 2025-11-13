@@ -1,0 +1,36 @@
+### List all 
+GET http://localhost:8000/api/permit
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+### Create one 
+POST http://localhost:8000/api/permit
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+Content-Type: application/json
+
+{
+    "name":"permit 2",
+    "description":"description 2",
+    "subject":"subject 2",
+    "action":"action 2"
+}
+### Update one 
+PUT http://localhost:8000/api/permit/1
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+Content-Type: application/json
+
+{
+    "name":"permit 1",
+    "description":"description 1",
+    "subject":"subject 1",
+    "action":"action 1"
+}
+### Find one 
+GET http://localhost:8000/api/permit/1
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+### Delete 
+DELETE http://localhost:8000/api/permit/1
+Accept: application/json
+Authorization: Bearer {{$dotenv TOKEN}}

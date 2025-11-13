@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
      
             $table->dateTime("date");
-            $table->string("note_type",20)->nullable();
+            $table->string("note_type",20);
             $table->decimal("taxes",12,2)->nullable();
             $table->decimal("discounts",12,2)->nullable();
             $table->decimal("total_calculated",12,2)->nullable();

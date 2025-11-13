@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string("telephone",20)->nullable();
             $table->string("address",200)->nullable();
             $table->string("email",250)->nullable();
-            $table->boolean("state",30)->default(true);
+            $table->boolean("state")->default(true);
 
             $table->timestamps();
         });

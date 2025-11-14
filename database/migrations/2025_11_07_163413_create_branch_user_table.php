@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('branch_role_user', function (Blueprint $table) {
+        Schema::create('branch_user', function (Blueprint $table) {
             $table->id();
 
             $table->bigInteger("branch_id")->unsigned();

@@ -15,9 +15,4 @@ class Product extends Model
                     ->withPivot(["current_quantity","update_date"])
                     ->withTimestamps();
     }
-    public function notes(){
-        return $this->belongsToMany(Note::class)
-                    ->withPivot(["quantity","movement_type","unit_purchase_price","unit_sales_price","observations"])
-                    ->withTimestamps();
-    }
 }

@@ -18,5 +18,4 @@ class Role extends Model
         return $this->belongsToMany(Branch::class)
                     ->withTimestamps();
     }
-
 }

@@ -13,8 +13,4 @@ class Branch extends Model
         return $this->belongsToMany(User::class)
                     ->withTimestamps();
     }
-    public function roles(){
-        return $this->belongsToMany(Role::class)
-                    ->withTimestamps();
-    }
 }

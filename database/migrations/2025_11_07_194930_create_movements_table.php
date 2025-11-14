@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('note_product_storehouse', function (Blueprint $table) {
+        Schema::create('movement', function (Blueprint $table) {
             $table->id();
             
             $table->bigInteger("note_id")->unsigned();

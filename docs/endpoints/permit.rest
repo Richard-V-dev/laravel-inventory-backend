@@ -9,10 +9,10 @@ Authorization: Bearer {{$dotenv TOKEN}}
 Content-Type: application/json
 
 {
-    "name":"permit 2",
-    "description":"description 2",
-    "subject":"subject 2",
-    "action":"action 2"
+    "name":"permit 1",
+    "description":"description 1",
+    "subject":"subject 1",
+    "action":"action 1"
 }
 ### Update one 
 PUT http://localhost:8000/api/permit/1

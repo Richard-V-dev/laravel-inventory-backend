@@ -9,8 +9,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "name":"CEO",
-    "detail":"CEO"
+    "name":"CEO 2",
+    "detail":"CEO 2"
 }
 ### Get a roles
 GET http://localhost:8000/api/role/1

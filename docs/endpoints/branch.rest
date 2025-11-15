@@ -9,7 +9,7 @@ Authorization: Bearer {{$dotenv TOKEN}}
 Content-Type: application/json
 
 {
-    "name":"branch 3",
+    "name":"branch 1",
     "address":"456 av. opq",
     "telephone":"4222222",
     "city":"Santa Cruz"

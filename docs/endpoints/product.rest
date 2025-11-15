@@ -1,6 +1,6 @@
 ### List all
 #GET http://localhost:8000/api/product?limit=2&state=false
-GET http://localhost:8000/api/product?limit=2&search=5
+GET http://localhost:8000/api/product?limit=2&search=brand
 Accept: application/json
 Authorization: Bearer {{$dotenv TOKEN}}
 ### List one
@@ -14,10 +14,10 @@ Authorization: Bearer {{$dotenv TOKEN}}
 Content-Type: application/json
 
 {
-    "name":"product 5",
-    "description": "description 5",
-    "unit_of_messurement": "unit 5",
-    "brand": "brand 5",
+    "name":"product 1",
+    "description": "description",
+    "unit_of_messurement": "unit",
+    "brand": "brand",
     "selling_price":5999.9,
     "state":false,
     "category_id":1

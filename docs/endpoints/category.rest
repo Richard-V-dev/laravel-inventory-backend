@@ -9,7 +9,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "name":"Casdfaasdfrsadfs",
+    "name":"Category 1",
     "detail":"Model 2010's"
 }
 ### Show One

@@ -9,7 +9,7 @@ Authorization: Bearer {{$dotenv TOKEN}}
 Content-Type: application/json
 
 {
-    "full_name":"Full name 3",
+    "full_name":"Full name 1",
     "ci_nit":"3683744",
     "address":"Av. 123 ABC",
     "telephone": "4369677",

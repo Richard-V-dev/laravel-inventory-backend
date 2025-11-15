@@ -13,8 +13,8 @@ Authorization: Bearer {{$dotenv TOKEN}}
 Content-Type: application/json
 
 {
-    "name":"storehouse 3",
-    "code": "ALM-003",
+    "name":"storehouse 1",
+    "code": "ALM-001",
     "description": "test",
-    "branch_id": 3
+    "branch_id": 1
 }

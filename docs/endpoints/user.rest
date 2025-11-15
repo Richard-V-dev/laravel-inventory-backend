@@ -10,8 +10,8 @@ Content-Type: application/json
 Authorization: Bearer {{$dotenv TOKEN}}
 
 {
-    "name": "borrar",
-    "email": "borrar@example.com",
+    "name": "borrar2",
+    "email": "borrar2@example.com",
     "password": "borrar54321"
 }
 ### ShowOne

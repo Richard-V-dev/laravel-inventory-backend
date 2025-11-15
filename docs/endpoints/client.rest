@@ -9,12 +9,12 @@ Authorization: Bearer {{$dotenv TOKEN}}
 Content-Type: application/json
 
 {
-    "type":"client_1",
-    "company_name":"company_name_1",
-    "identification_number":"identification_number_1",
-    "telephone":"telephone_1",
-    "address":"address_1",
-    "email":"email_1",
+    "type":"client 1",
+    "company_name":"company_name",
+    "identification_number":"identification_number",
+    "telephone":"telephone",
+    "address":"address",
+    "email":"email",
     "state": true
 }
 ### Update one client

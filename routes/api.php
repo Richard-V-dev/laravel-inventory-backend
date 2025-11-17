@@ -27,6 +27,7 @@ Route::prefix('/v1/auth')->group(function(){
         Route::post("/logout",[AuthController::class,"logout"]);
     });
 });
+Route::get("/note/pdfReport", [NoteController::class, "pdfReport"]);###
 Route::middleware('auth:sanctum')->group(function(){
 
     Route::post('/product/{id}/image', [ProductController::class, 'updateImage']);

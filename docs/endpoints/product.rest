@@ -1,5 +1,4 @@
 ### List all
-#GET http://localhost:8000/api/product?limit=2&state=false
 GET http://localhost:8000/api/product?limit=2&search=brand
 Accept: application/json
 Authorization: Bearer {{$dotenv TOKEN}}

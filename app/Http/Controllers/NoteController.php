@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Note;
 use Exception;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
+
+
 class NoteController extends Controller
 {
     /**
@@ -50,11 +53,11 @@ class NoteController extends Controller
             "note_state"=>"nullable|string",
             "observations"=>"nullable|string",
             "client_id"=>"required|exists:clients,id",
-            "user_id"=>"required",
+            "user_id"=>"required|exists:users,id",
             "movements"=>"required|array|min:1",
-                "movements.*.product_id"=>"required|exists:product,id",
-                "movements.*.storehouse_id"=>"required|exists:storehouse,id",
-                "movements.*.quantity"=>"required|quantity|min:1",
+                "movements.*.product_id"=>"required|exists:products,id",
+                "movements.*.storehouse_id"=>"required|exists:storehouses,id",
+                "movements.*.quantity"=>"required|min:1",
                 "movements.*.movement_type"=>"required|in:entry,exit,return",
                 "movements.*.unit_purchase_price"=>"required",
                 "movements.*.unit_sales_price"=>"required",
@@ -84,6 +87,19 @@ class NoteController extends Controller
                     "unit_sales_price"=>$movs["unit_sales_price"],
                     "observations"=>$movs["observations"]??null
                 ]);
+                /*DB::table("movements")->insert([
+                    "note_id"            => $note->id,
+                    "product_id"         => $movs["product_id"],
+                    "storehouse_id"      => $movs["storehouse_id"],
+                    "quantity"           => $movs["quantity"],
+                    "movement_type"      => $movs["movement_type"],
+                    "unit_purchase_price" => $movs["unit_purchase_price"],
+                    "unit_sales_price"    => $movs["unit_sales_price"],
+                    "observations"        => $movs["observations"] ?? null,
+                    "created_at"          => now(),
+                    "updated_at"          => now(),
+                ]);*/
+
                 $pivot = DB::table("product_storehouse")
                             ->where("storehouse_id",$movs["storehouse_id"])
                             ->where("product_id",$movs["product_id"])
@@ -115,7 +131,6 @@ class NoteController extends Controller
                                 "current_quantity"=>$newQuantity,
                                 "update_date"=>now()
                             ]);
-                    
                 }
             }
             DB::commit();
@@ -141,7 +156,7 @@ class NoteController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
+       /* $request->validate([
             "note_type"=>"required|in:sale,purchase,return",
             "client_id"=>"required",
             "user_id"=>"required"
@@ -157,7 +172,8 @@ class NoteController extends Controller
         $note->user_id = $request->user_id ;  
         $note->update();
         return response()->json(["message"=>"Note successfully updated"]);    
-    }
+        */
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -165,5 +181,33 @@ class NoteController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function pdfReport(Request $request){
+        $query = Note::with(['user','client']);
+        if($request->has("note_type")){
+            $query->where("note_type",$request->note_type);
+        }
+        if($request->has("note_state")){
+            $query->where("note_state",$request->note_state);
+        }
+        if($request->has("client_id")){
+            $query->where("client_id",$request->client_id);
+        }
+        if($request->has("user_id")){
+            $query->where("user_id",$request->client_id);
+        }
+        if($request->has("user_id")){
+            $query->where("user_id",$request->client_id);
+        }
+        if($request->has(["start_date","end_date"])){
+            $query->where("date",[$request->start_date,$request->end_date]);
+        }
+        if($request->has('search')){
+            $query->where("note_type","like","%".$request->search."%")
+                ->orWhere("observations","like","%".$request->search."%");
+        }
+        $notes = $query->orderByDesc("date")->paginate(2);
+        $pdf = Pdf::loadView('pdf.notes',["notes"=>$notes]);
+        return $pdf->download('notes.pdf');
     }
 }
